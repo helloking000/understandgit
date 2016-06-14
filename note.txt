@@ -57,7 +57,19 @@ key,这样就允许在多个电脑上向github推送。
 
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改
 
+
+
+
 HEAD指向的就是当前分支
+我们创建dev分支，然后切换到dev分支：git checkout -b dev
+-b参数表示创建并切换，相当于以下两条命令：
+ git branch dev
+ git checkout dev
+
+
+查看当前所有分支：git branch
+git merge命令用于合并 指定分支 到当前分支。
+
 
 
 
