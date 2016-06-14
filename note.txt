@@ -1,0 +1,79 @@
+git init 将文件夹初始化为git 仓库；
+定义在这个文件夹（git 仓库）的文件，如果想要被git追踪到变化，必须经过git add和git commit处理
+才行。 而后来在这个文件修改后的文件，也需要经过git add和git commit处理。
+
+
+对文件刚刚修改保存完成时，使用git status查看，git只知道大概的修改状况，此时使用git diff+具体文件名称，可以看到具体的修改；
+当对刚刚修改后的文件，git add 和 git commit之后，git会记录这次修改（是不是这里有点绕，两次有什么区别呢？）
+
+
+Git是如何跟踪修改的:每次修改，如果不add到暂存区，那就不会加入到commit中。
+
+
+
+场景1： 丢弃工作区的修改：git checkout -- readme.txt，让这个文件回到最近一次git commit或git add时的状态。
+场景2： 丢弃暂存区的修改：，分两步，第一步用命令git reset HEAD file，git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+就回到了场景1，第二步按场景1操作。
+
+
+删除版本库里的文件：
+1  在文件管理器中把没用的文件删了，或者用rm命令删了：rm test.txt
+2  从版本库中删除该文件:git rm test.txt
+3  git commit -m "remove test.txt"
+在Git中，删除也是一个修改操作。添加一个空文件，add之后,commit。git 就能追踪这个文件，当文件被删除，
+git会知道。
+
+注意：
+删除文件（工作区）并不可怕，如果把版本库里的文件也删除了，那就真没得恢复了。
+
+
+
+添加一个文件，不add 不commit ,删除该文件，git会不会发现?----不会:第一次添加文件并没有收到git的监护，所以
+在文件修改之后，git也不会觉察。
+
+
+
+
+远程仓库：
+你的 本地Git仓库 和 GitHub仓库 之间的传输是通过SSH加密的：---------------------------ssh通信原理？？？？？
+
+在你电脑本机上 有 ： 在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，
+id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+
+
+登录github，提交id_rsa.pub（公钥）给github，github需要此来识别你推送的确实是你推送的。并且可以在git上添加多个
+key,这样就允许在多个电脑上向github推送。
+
+
+在git上创建新仓库：understandgit
+根据创建向导，我们现在要与本地的仓库关联
+在你本地电脑上运行：git remote add origin https://github.com/helloking000/understandgit.git，这条命令
+会关联本地电脑的git仓库至远程github仓库understandgit.git;
+关联成功之后，就是将本地仓库推送至远程：git push -u origin master ，实际上是把当前分支master推送到远程。 
+加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和
+远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+注意这一步属于ssh通信，需要输入github账户（helloKing000）和密码。
+
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
