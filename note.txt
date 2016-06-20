@@ -73,6 +73,12 @@ git merge命令用于合并 指定分支 到当前分支。
 刚刚想到一个问题：是不是每个分支都用于git仓库，答案是否定的，这得看你是否将文件add commit。
 
 
+git分支管理策略：
+合并分支，git默认使用 fast forward模式：删除分支后会丢掉分支的信息
+禁用fast forward模式：--no-ff,这样git在merge时会生成一个新的commit，这样在分支历史上可以看到
+分支信息。
+
+
 
 
 
