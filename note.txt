@@ -77,7 +77,7 @@ git分支管理策略：
 合并分支，git默认使用 fast forward模式：删除分支后会丢掉分支的信息
 禁用fast forward模式：--no-ff,这样git在merge时会生成一个新的commit，这样在分支历史上可以看到
 分支信息。
-
+git merge --no-ff -m "merge with no-ff" dev
 
 
 还是没明白
