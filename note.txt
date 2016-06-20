@@ -83,15 +83,13 @@ git merge --no-ff -m "merge with no-ff" dev
 Bug分支
 
 
-<<<<<<< Updated upstream
 
-=======
-还是没明白
->>>>>>> Stashed changes
+要查看远程库的信息，用git remote：
+或者，用git remote -v显示更详细的信息：
 
 
 
-
+git push origin master    //将本地的master分支推送到远程的origin分支
 
 
 
