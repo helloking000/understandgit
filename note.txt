@@ -80,7 +80,10 @@ git分支管理策略：
 git merge --no-ff -m "merge with no-ff" dev
 
 
-还是没明白
+Bug分支
+
+
+
 
 
 
